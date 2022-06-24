@@ -64,13 +64,4 @@ void signup::on_signupBtn_clicked()
         }
     }
 
-
-
-
-
-
-
-
-
-
 }

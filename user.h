@@ -1,7 +1,7 @@
 #ifndef USER_H
 #define USER_H
 #include <QString>
-
+#include <QJsonArray>
 class user
 {
 public:
@@ -12,8 +12,11 @@ public:
     static bool existPhone(QString phone);
     static bool save(QString name,QString username,QString password,QString phone,QString address);
     static QString getRole(QString username);
+    static QString getName(QString username);
     static bool isActive(QString username);
-
+    static QJsonArray getAllUser();
+    static bool editUser(QString username , QString role , bool status);
+    static bool logout();
 };
 
 #endif // USER_H

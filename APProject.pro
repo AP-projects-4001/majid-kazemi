@@ -16,6 +16,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    adminpanel.cpp \
+    edituser.cpp \
     rememberme.cpp \
     signup.cpp \
     utilities.cpp \
@@ -25,6 +27,8 @@ SOURCES += \
     validator.cpp
 
 HEADERS += \
+    adminpanel.h \
+    edituser.h \
     mainwindow.h \
     rememberme.h \
     signup.h \
@@ -33,6 +37,8 @@ HEADERS += \
     validator.h
 
 FORMS += \
+    adminpanel.ui \
+    edituser.ui \
     mainwindow.ui \
     rememberme.ui \
     signup.ui

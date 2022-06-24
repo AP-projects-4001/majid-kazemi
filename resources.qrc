@@ -5,5 +5,7 @@
     <qresource prefix="/images">
         <file>background</file>
         <file>icon</file>
+        <file>close.png</file>
+        <file>min.png</file>
     </qresource>
 </RCC>

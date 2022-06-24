@@ -6,6 +6,7 @@
 #include "rememberme.h"
 #include "signup.h"
 #include <QSettings>
+#include "adminpanel.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,8 +14,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->notification->hide();
-    QSettings settings("c:/windows/winf32.ini", QSettings::IniFormat);
-
 
 }
 
@@ -32,10 +31,22 @@ void MainWindow::on_loginBtn_clicked()
     ui->notification->show();
     if (returnValue) {
         if(user::isActive(username)){
+            QString role = user::getRole(username);
             QSettings settings("c:/windows/winf32.ini", QSettings::IniFormat);
             settings.setValue("login",true);
             settings.setValue("username", username);
-            settings.setValue("role",user::getRole(username));
+            settings.setValue("role",role);
+            settings.setValue("name",user::getName(username));
+            if (role == "admin") {
+                adminpanel *admin = new adminpanel();
+                admin->setFixedSize(admin->width(),admin->height());
+                admin->setWindowState(Qt::WindowMaximized);
+                admin->setWindowTitle(" ");
+                admin->setWindowIcon(QIcon(":/images/icon"));
+                admin->show();
+
+                this->hide();
+            }
         }else{
             ui->notification->show();
             ui->notification->setStyleSheet("color:red;");
