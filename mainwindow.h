@@ -15,6 +15,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_loginBtn_clicked();
+    void on_rememberMe_clicked();
+    void remember_me(QString username , QString password);
+
+    void on_signupBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
