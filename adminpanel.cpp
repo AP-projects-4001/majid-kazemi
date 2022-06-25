@@ -13,6 +13,7 @@
 #include "edituser.h"
 #include "buy.h"
 #include "pay.h"
+#include "product.h"
 
 adminpanel::adminpanel(QWidget *parent) :
     QWidget(parent),
@@ -26,7 +27,7 @@ adminpanel::adminpanel(QWidget *parent) :
     ui->buyTitle->hide();
     ui->payTable->hide();
     ui->payTitle->hide();
-
+    ui->productTable->hide();
 }
 
 adminpanel::~adminpanel()
@@ -54,6 +55,7 @@ void adminpanel::on_userBtn_clicked()
     ui->buyTitle->hide();
     ui->payTable->hide();
     ui->payTitle->hide();
+    ui->productTable->hide();
     ui->userTable->show();
     ui->userTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
@@ -145,6 +147,7 @@ void adminpanel::on_transactionBtn_clicked()
     ui->transactionBtn->setStyleSheet("background-color:white;");
     ui->productBtn->setStyleSheet("background-color:green;");
     ui->userTable->hide();
+    ui->productTable->hide();
     ui->buyTable->show();
     ui->buyTitle->show();
     ui->payTable->show();
@@ -223,5 +226,66 @@ void adminpanel::on_transactionBtn_clicked()
 
     }
 
+
+}
+
+void adminpanel::on_productBtn_clicked()
+{
+    ui->userBtn->setStyleSheet("background-color:green;");
+    ui->transactionBtn->setStyleSheet("background-color:green;");
+    ui->productBtn->setStyleSheet("background-color:white;");
+    ui->userTable->hide();
+    ui->buyTable->hide();
+    ui->buyTitle->hide();
+    ui->payTable->hide();
+    ui->payTitle->hide();
+    ui->productTable->show();
+
+    ui->productTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    QJsonArray product = product::getAllProduct();
+    ui->productTable->setRowCount(product.size());
+    ui->productTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    for (int i = 0; i < product.size(); i++) {
+        QTableWidgetItem *item1 = new QTableWidgetItem();
+        QTableWidgetItem *item2 = new QTableWidgetItem();
+        QTableWidgetItem *item3 = new QTableWidgetItem();
+        QTableWidgetItem *item4 = new QTableWidgetItem();
+        QTableWidgetItem *item5 = new QTableWidgetItem();
+        QTableWidgetItem *item6 = new QTableWidgetItem();
+        QTableWidgetItem *item7 = new QTableWidgetItem();
+
+
+        ui->productTable->setItem(i,0,item1);
+        item1->setText(QString::number(product.at(i)["id"].toInt()));
+        item1->setTextAlignment(Qt::AlignCenter);
+
+        ui->productTable->setItem(i,1,item2);
+        item2->setText(product.at(i)["name"].toString());
+        item2->setTextAlignment(Qt::AlignCenter);
+
+
+        ui->productTable->setItem(i,2,item3);
+        item3->setText(product.at(i)["category"].toString());
+        item3->setTextAlignment(Qt::AlignCenter);
+
+        ui->productTable->setItem(i,3,item4);
+        item4->setText(product.at(i)["customer"].toString());
+        item4->setTextAlignment(Qt::AlignCenter);
+
+
+        ui->productTable->setItem(i,4,item5);
+        item5->setText(QString::number(product.at(i)["count"].toInt()) + "*");
+        item5->setTextAlignment(Qt::AlignCenter);
+        //item4->setTextColor(QColor("green"));
+
+        ui->productTable->setItem(i,5,item6);
+        item6->setText(QString::number(product.at(i)["price"].toInt()) +" "+ " تومان");
+        item6->setTextAlignment(Qt::AlignCenter);
+
+        ui->productTable->setItem(i,6,item7);
+        item7->setText(product.at(i)["brand"].toString());
+        item7->setTextAlignment(Qt::AlignCenter);
+
+    }
 
 }

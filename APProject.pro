@@ -20,6 +20,7 @@ SOURCES += \
     buy.cpp \
     edituser.cpp \
     pay.cpp \
+    product.cpp \
     rememberme.cpp \
     signup.cpp \
     utilities.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
     edituser.h \
     mainwindow.h \
     pay.h \
+    product.h \
     rememberme.h \
     signup.h \
     user.h \
