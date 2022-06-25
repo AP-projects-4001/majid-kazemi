@@ -17,7 +17,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     adminpanel.cpp \
+    buy.cpp \
     edituser.cpp \
+    pay.cpp \
     rememberme.cpp \
     signup.cpp \
     utilities.cpp \
@@ -28,8 +30,10 @@ SOURCES += \
 
 HEADERS += \
     adminpanel.h \
+    buy.h \
     edituser.h \
     mainwindow.h \
+    pay.h \
     rememberme.h \
     signup.h \
     user.h \

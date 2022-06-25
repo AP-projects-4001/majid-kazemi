@@ -193,6 +193,9 @@ color:white;</string>
    </property>
   </widget>
   <widget class="QTableWidget" name="userTable">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -238,7 +241,7 @@ color:white;</string>
     <bool>false</bool>
    </attribute>
    <attribute name="verticalHeaderVisible">
-    <bool>false</bool>
+    <bool>true</bool>
    </attribute>
    <attribute name="verticalHeaderCascadingSectionResizes">
     <bool>false</bool>
@@ -259,6 +262,198 @@ color:white;</string>
    <column/>
    <column/>
    <column/>
+  </widget>
+  <widget class="QLabel" name="buyTitle">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>200</y>
+     <width>140</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yekan Bakh</family>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:white;</string>
+   </property>
+   <property name="text">
+    <string>خرید ها</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="buyTable">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>260</y>
+     <width>950</width>
+     <height>700</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yekan Bakh</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:white;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="rowCount">
+    <number>0</number>
+   </property>
+   <property name="columnCount">
+    <number>6</number>
+   </property>
+   <attribute name="horizontalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderHighlightSections">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderCascadingSectionResizes">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderHighlightSections">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderStretchLastSection">
+    <bool>false</bool>
+   </attribute>
+   <column/>
+   <column/>
+   <column/>
+   <column/>
+   <column/>
+   <column/>
+  </widget>
+  <widget class="QTableWidget" name="payTable">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>960</x>
+     <y>260</y>
+     <width>950</width>
+     <height>700</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yekan Bakh</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:white;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="rowCount">
+    <number>0</number>
+   </property>
+   <property name="columnCount">
+    <number>4</number>
+   </property>
+   <attribute name="horizontalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderHighlightSections">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderCascadingSectionResizes">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderHighlightSections">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderStretchLastSection">
+    <bool>false</bool>
+   </attribute>
+   <column/>
+   <column/>
+   <column/>
+   <column/>
+  </widget>
+  <widget class="QLabel" name="payTitle">
+   <property name="geometry">
+    <rect>
+     <x>1380</x>
+     <y>200</y>
+     <width>140</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yekan Bakh</family>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:white;</string>
+   </property>
+   <property name="text">
+    <string>پرداختی ها</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
  </widget>
  <resources/>

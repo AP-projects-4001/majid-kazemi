@@ -87,7 +87,7 @@ bool user::save(QString name, QString username, QString password, QString phone,
     f.close();
 
 
-    QJsonObject newUser = { {"name", name},{"username", username},{"password", password},{"phone",phone},{"address",address} ,{"role","client"}, {"status",true} };
+    QJsonObject newUser = { {"name", name},{"username", username},{"password", password},{"phone",phone},{"address",address} ,{"role","client"}, {"status",true} , {"acount",0} };
     QJsonArray users = jsonOrg.array();
     users.push_back(newUser);
     QJsonDocument doc(users);
@@ -168,6 +168,7 @@ bool user::editUser(QString username, QString role, bool status)
 {
 
     QString name,phone,address,password;
+    qint64 acount;
     QJsonArray newUsers;
     QFile f("data.json");
     f.open(QIODevice::ReadOnly);
@@ -180,12 +181,13 @@ bool user::editUser(QString username, QString role, bool status)
             phone = users.at(i)["phone"].toString();
             address = users.at(i)["address"].toString();
             password = users.at(i)["password"].toString();
+            acount = users.at(i)["acount"].toInt();
             f.close();
         }else{
             newUsers.append(users.at(i));
         }
     }
-    QJsonObject newUser = { {"name", name},{"username", username},{"password", password},{"phone",phone},{"address",address} ,{"role",role}, {"status",status} };
+    QJsonObject newUser = { {"name", name},{"username", username},{"password", password},{"phone",phone},{"address",address} ,{"role",role}, {"status",status} ,{"acount",acount}};
     newUsers.append(newUser);
     f.close();
 

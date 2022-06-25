@@ -24,6 +24,8 @@ private slots:
     void update_user();
 
 
+    void on_transactionBtn_clicked();
+
 private:
     Ui::adminpanel *ui;
 };
