@@ -7,6 +7,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QSettings>
+
 user::user()
 {
 
@@ -214,4 +215,38 @@ bool user::logout()
     settings.setValue("username","");
     settings.setValue("role","");
     settings.setValue("name","");
+}
+
+qint64 user::getUserCount()
+{
+    QFile f("data.json");
+    qint64 count = 0;
+    f.open(QIODevice::ReadOnly);
+    QByteArray data = f.readAll();
+    QJsonDocument json = QJsonDocument::fromJson(data);
+    QJsonArray users = json.array();
+    for (int i = 0; i < users.size(); i++) {
+        if(users.at(i)["role"] == "client"){
+            count++;
+        }
+    }
+    f.close();
+    return count;
+}
+
+qint64 user::getCustomerCount()
+{
+    QFile f("data.json");
+    qint64 count = 0;
+    f.open(QIODevice::ReadOnly);
+    QByteArray data = f.readAll();
+    QJsonDocument json = QJsonDocument::fromJson(data);
+    QJsonArray users = json.array();
+    for (int i = 0; i < users.size(); i++) {
+        if(users.at(i)["role"] == "customer"){
+            count++;
+        }
+    }
+    f.close();
+    return count;
 }

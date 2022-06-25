@@ -24,3 +24,18 @@ QJsonArray buy::getAllBuy()
     return json.array();
 
 }
+
+qint64 buy::getSumOfBuy()
+{
+    QFile f("buy.json");
+    qint64 sum = 0;
+    f.open(QIODevice::ReadOnly);
+    QByteArray data = f.readAll();
+    QJsonDocument json = QJsonDocument::fromJson(data);
+    QJsonArray buy = json.array();
+    for (int i = 0; i < buy.size(); i++) {
+        sum += buy.at(i)["price"].toInt();
+    }
+    f.close();
+    return sum;
+}

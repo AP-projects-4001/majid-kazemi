@@ -241,7 +241,7 @@ color:white;</string>
     <bool>false</bool>
    </attribute>
    <attribute name="verticalHeaderVisible">
-    <bool>false</bool>
+    <bool>true</bool>
    </attribute>
    <attribute name="verticalHeaderCascadingSectionResizes">
     <bool>false</bool>
@@ -526,6 +526,374 @@ color:white;</string>
    <column/>
    <column/>
   </widget>
+  <widget class="QPushButton" name="statisticBtn">
+   <property name="geometry">
+    <rect>
+     <x>1450</x>
+     <y>90</y>
+     <width>100</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yekan Bakh</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:green;
+color:white;</string>
+   </property>
+   <property name="text">
+    <string>آمار کلی</string>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+   <property name="default">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="userStatisticLabel">
+   <property name="geometry">
+    <rect>
+     <x>1020</x>
+     <y>240</y>
+     <width>150</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yekan Bakh</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:white;</string>
+   </property>
+   <property name="text">
+    <string>تعداد کاربران</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="userStatisticInput">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>240</y>
+     <width>240</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yekan Bakh</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:white;</string>
+   </property>
+   <property name="text">
+    <string>19</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="customerStatisticLabel">
+   <property name="geometry">
+    <rect>
+     <x>1020</x>
+     <y>310</y>
+     <width>150</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yekan Bakh</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:white;</string>
+   </property>
+   <property name="text">
+    <string>تعداد فروشندگان</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="customerStatisticInput">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>310</y>
+     <width>240</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yekan Bakh</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:white;</string>
+   </property>
+   <property name="text">
+    <string>5</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="productStatisticInput">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>380</y>
+     <width>240</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yekan Bakh</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:white;</string>
+   </property>
+   <property name="text">
+    <string>49</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="productStatisticLabel">
+   <property name="geometry">
+    <rect>
+     <x>1020</x>
+     <y>380</y>
+     <width>150</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yekan Bakh</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:white;</string>
+   </property>
+   <property name="text">
+    <string>تعداد کالا ها</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="buyStatisticLabel">
+   <property name="geometry">
+    <rect>
+     <x>1020</x>
+     <y>450</y>
+     <width>150</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yekan Bakh</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:white;</string>
+   </property>
+   <property name="text">
+    <string>مجموع فروش</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="buyStatisticInput">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>450</y>
+     <width>240</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yekan Bakh</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:white;</string>
+   </property>
+   <property name="text">
+    <string>23000000</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="payStatisticInput">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>530</y>
+     <width>240</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yekan Bakh</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:white;</string>
+   </property>
+   <property name="text">
+    <string>19000000</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="payStatisticLabel">
+   <property name="geometry">
+    <rect>
+     <x>1020</x>
+     <y>530</y>
+     <width>150</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yekan Bakh</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:white;</string>
+   </property>
+   <property name="text">
+    <string>مجموع پرداختی ها</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <zorder>userTable</zorder>
+  <zorder>scene</zorder>
+  <zorder>adminLabel</zorder>
+  <zorder>logoutBtn</zorder>
+  <zorder>userBtn</zorder>
+  <zorder>transactionBtn</zorder>
+  <zorder>productBtn</zorder>
+  <zorder>buyTitle</zorder>
+  <zorder>buyTable</zorder>
+  <zorder>payTable</zorder>
+  <zorder>payTitle</zorder>
+  <zorder>productTable</zorder>
+  <zorder>statisticBtn</zorder>
+  <zorder>userStatisticLabel</zorder>
+  <zorder>userStatisticInput</zorder>
+  <zorder>customerStatisticLabel</zorder>
+  <zorder>customerStatisticInput</zorder>
+  <zorder>productStatisticInput</zorder>
+  <zorder>productStatisticLabel</zorder>
+  <zorder>buyStatisticLabel</zorder>
+  <zorder>buyStatisticInput</zorder>
+  <zorder>payStatisticInput</zorder>
+  <zorder>payStatisticLabel</zorder>
  </widget>
  <resources/>
  <connections/>

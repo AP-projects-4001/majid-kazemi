@@ -28,6 +28,20 @@ adminpanel::adminpanel(QWidget *parent) :
     ui->payTable->hide();
     ui->payTitle->hide();
     ui->productTable->hide();
+    ui->productStatisticInput->hide();
+    ui->productStatisticLabel->hide();
+
+    ui->userStatisticInput->hide();
+    ui->userStatisticLabel->hide();
+
+    ui->buyStatisticInput->hide();
+    ui->buyStatisticLabel->hide();
+
+    ui->payStatisticInput->hide();
+    ui->payStatisticLabel->hide();
+
+    ui->customerStatisticInput->hide();
+    ui->customerStatisticLabel->hide();
 }
 
 adminpanel::~adminpanel()
@@ -51,11 +65,27 @@ void adminpanel::on_userBtn_clicked()
     ui->userBtn->setStyleSheet("background-color:white;");
     ui->transactionBtn->setStyleSheet("background-color:green;");
     ui->productBtn->setStyleSheet("background-color:green;");
+    ui->statisticBtn->setStyleSheet("background-color:green;");
+
     ui->buyTable->hide();
     ui->buyTitle->hide();
     ui->payTable->hide();
     ui->payTitle->hide();
     ui->productTable->hide();
+    ui->productStatisticInput->hide();
+    ui->productStatisticLabel->hide();
+
+    ui->userStatisticInput->hide();
+    ui->userStatisticLabel->hide();
+
+    ui->buyStatisticInput->hide();
+    ui->buyStatisticLabel->hide();
+
+    ui->payStatisticInput->hide();
+    ui->payStatisticLabel->hide();
+
+    ui->customerStatisticInput->hide();
+    ui->customerStatisticLabel->hide();
     ui->userTable->show();
     ui->userTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
@@ -146,8 +176,24 @@ void adminpanel::on_transactionBtn_clicked()
     ui->userBtn->setStyleSheet("background-color:green;");
     ui->transactionBtn->setStyleSheet("background-color:white;");
     ui->productBtn->setStyleSheet("background-color:green;");
+    ui->statisticBtn->setStyleSheet("background-color:green;");
+
     ui->userTable->hide();
     ui->productTable->hide();
+    ui->productStatisticInput->hide();
+    ui->productStatisticLabel->hide();
+
+    ui->userStatisticInput->hide();
+    ui->userStatisticLabel->hide();
+
+    ui->buyStatisticInput->hide();
+    ui->buyStatisticLabel->hide();
+
+    ui->payStatisticInput->hide();
+    ui->payStatisticLabel->hide();
+
+    ui->customerStatisticInput->hide();
+    ui->customerStatisticLabel->hide();
     ui->buyTable->show();
     ui->buyTitle->show();
     ui->payTable->show();
@@ -233,12 +279,28 @@ void adminpanel::on_productBtn_clicked()
 {
     ui->userBtn->setStyleSheet("background-color:green;");
     ui->transactionBtn->setStyleSheet("background-color:green;");
+    ui->statisticBtn->setStyleSheet("background-color:green;");
+
     ui->productBtn->setStyleSheet("background-color:white;");
     ui->userTable->hide();
     ui->buyTable->hide();
     ui->buyTitle->hide();
     ui->payTable->hide();
     ui->payTitle->hide();
+    ui->productStatisticInput->hide();
+    ui->productStatisticLabel->hide();
+
+    ui->userStatisticInput->hide();
+    ui->userStatisticLabel->hide();
+
+    ui->buyStatisticInput->hide();
+    ui->buyStatisticLabel->hide();
+
+    ui->payStatisticInput->hide();
+    ui->payStatisticLabel->hide();
+
+    ui->customerStatisticInput->hide();
+    ui->customerStatisticLabel->hide();
     ui->productTable->show();
 
     ui->productTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -276,7 +338,6 @@ void adminpanel::on_productBtn_clicked()
         ui->productTable->setItem(i,4,item5);
         item5->setText(QString::number(product.at(i)["count"].toInt()) + "*");
         item5->setTextAlignment(Qt::AlignCenter);
-        //item4->setTextColor(QColor("green"));
 
         ui->productTable->setItem(i,5,item6);
         item6->setText(QString::number(product.at(i)["price"].toInt()) +" "+ " تومان");
@@ -287,5 +348,43 @@ void adminpanel::on_productBtn_clicked()
         item7->setTextAlignment(Qt::AlignCenter);
 
     }
+
+}
+
+void adminpanel::on_statisticBtn_clicked()
+{
+    ui->userBtn->setStyleSheet("background-color:green;");
+    ui->transactionBtn->setStyleSheet("background-color:green;");
+    ui->productBtn->setStyleSheet("background-color:green;");
+    ui->statisticBtn->setStyleSheet("background-color:white;");
+
+    ui->userTable->hide();
+    ui->buyTable->hide();
+    ui->buyTitle->hide();
+    ui->payTable->hide();
+    ui->payTitle->hide();
+    ui->productTable->hide();
+
+    ui->productStatisticInput->show();
+    ui->productStatisticLabel->show();
+
+    ui->userStatisticInput->show();
+    ui->userStatisticLabel->show();
+
+    ui->buyStatisticInput->show();
+    ui->buyStatisticLabel->show();
+
+    ui->payStatisticInput->show();
+    ui->payStatisticLabel->show();
+
+    ui->customerStatisticInput->show();
+    ui->customerStatisticLabel->show();
+
+
+    ui->userStatisticInput->setText(QString::number(user::getUserCount()));
+    ui->customerStatisticInput->setText(QString::number(user::getCustomerCount()));
+    ui->productStatisticInput->setText(QString::number(product::getProductCount()));
+    ui->buyStatisticInput->setText(QString::number(buy::getSumOfBuy()));
+    ui->payStatisticInput->setText(QString::number(pay::getSumOfPay()));
 
 }

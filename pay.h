@@ -8,6 +8,7 @@ class pay
 public:
     pay();
     static QJsonArray getAllPay();
+    static qint64 getSumOfPay();
 };
 
 #endif // PAY_H

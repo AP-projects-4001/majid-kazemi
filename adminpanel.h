@@ -28,6 +28,8 @@ private slots:
 
     void on_productBtn_clicked();
 
+    void on_statisticBtn_clicked();
+
 private:
     Ui::adminpanel *ui;
 };

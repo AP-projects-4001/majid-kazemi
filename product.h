@@ -9,6 +9,7 @@ class product
 public:
     product();
     static QJsonArray getAllProduct();
+    static qint64 getProductCount();
 
 };
 

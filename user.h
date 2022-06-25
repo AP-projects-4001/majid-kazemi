@@ -17,6 +17,9 @@ public:
     static QJsonArray getAllUser();
     static bool editUser(QString username , QString role , bool status);
     static bool logout();
+    static qint64 getUserCount();
+    static qint64 getCustomerCount();
+
 };
 
 #endif // USER_H
