@@ -18,6 +18,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     adminpanel.cpp \
     buy.cpp \
+    buypanel.cpp \
+    clientpanel.cpp \
+    detailproduct.cpp \
     edituser.cpp \
     pay.cpp \
     product.cpp \
@@ -32,6 +35,9 @@ SOURCES += \
 HEADERS += \
     adminpanel.h \
     buy.h \
+    buypanel.h \
+    clientpanel.h \
+    detailproduct.h \
     edituser.h \
     mainwindow.h \
     pay.h \
@@ -44,6 +50,9 @@ HEADERS += \
 
 FORMS += \
     adminpanel.ui \
+    buypanel.ui \
+    clientpanel.ui \
+    detailproduct.ui \
     edituser.ui \
     mainwindow.ui \
     rememberme.ui \

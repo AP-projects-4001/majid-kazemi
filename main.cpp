@@ -3,6 +3,8 @@
 #include <QSettings>
 #include <adminpanel.h>
 #include <QDebug>
+#include "clientpanel.h"
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -16,6 +18,15 @@ int main(int argc, char *argv[])
             admin->setWindowTitle(" ");
             admin->setWindowIcon(QIcon(":/images/icon"));
             admin->show();
+        }else if (settings.value("role").toString() == "client") {
+            clientpanel *client = new clientpanel();
+            client->setFixedSize(client->width(),client->height());
+            client->setWindowState(Qt::WindowMaximized);
+            client->setWindowTitle(" ");
+            client->setWindowIcon(QIcon(":/images/icon"));
+            client->show();
+        }else{
+
         }
         return a.exec();
 

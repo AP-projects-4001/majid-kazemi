@@ -3,6 +3,11 @@
 #include <QJsonDocument>
 #include <QDebug>
 #include <QDateTime>
+#include <QSettings>
+#include "utilities.h"
+#include "product.h"
+#include <QJsonObject>
+
 buy::buy()
 {
 
@@ -15,12 +20,6 @@ QJsonArray buy::getAllBuy()
     QByteArray data = f.readAll();
     QJsonDocument json = QJsonDocument::fromJson(data);
     f.close();
-
-//    QDateTime date = QDateTime::currentDateTime();
-//    QString formattedTime = date.toString("hh:mm:ss | yyyy.MM.dd");
-//    QByteArray formattedTimeMsg = formattedTime.toLocal8Bit();
-//    qDebug() << formattedTimeMsg;
-
     return json.array();
 
 }
@@ -39,3 +38,55 @@ qint64 buy::getSumOfBuy()
     f.close();
     return sum;
 }
+
+int buy::getLastId()
+{
+    QFile f("buy.json");
+    f.open(QIODevice::ReadOnly);
+    QByteArray data = f.readAll();
+    QJsonDocument json = QJsonDocument::fromJson(data);
+    QJsonArray buy = json.array();
+    if(buy.size() > 0){
+        return buy.last()["id"].toInt() + 1;
+    }
+    return 1;
+}
+
+
+bool buy::checkout(qint64 productCount, qint64 productPrice)
+{
+    QSettings settings("c:/windows/winf32.ini", QSettings::IniFormat);
+
+    QString username = settings.value("username").toString();
+    QString productName = settings.value("buy_product").toString();
+
+    if (productCount > product::getAllAvailableProduct(productName)) {
+        return false;
+    }
+
+
+
+    QFile f("buy.json");
+    if( !f.open( QIODevice::ReadOnly ) ){
+        return false;
+    }
+    QJsonDocument jsonOrg = QJsonDocument::fromJson( f.readAll() );
+    f.close();
+
+    QJsonObject newBuy = { {"id", buy::getLastId()},{"date", utilities::getDataAndTime()},{"product_name", productName},{"count",productCount},{"price",(productCount * productPrice)} ,{"buyer",username}};
+    QJsonArray allBuy = jsonOrg.array();
+    allBuy.push_back(newBuy);
+    QJsonDocument doc(allBuy);
+    QFile j("buy.json");
+
+    if( !j.open( QIODevice::ReadWrite | QIODevice::Truncate )  ){
+        return false;
+    }
+
+    j.write(doc.toJson());
+    j.close();
+
+    return true;
+}
+
+

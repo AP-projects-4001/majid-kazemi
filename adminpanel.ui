@@ -871,7 +871,6 @@ color:white;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <zorder>userTable</zorder>
   <zorder>scene</zorder>
   <zorder>adminLabel</zorder>
   <zorder>logoutBtn</zorder>
@@ -894,6 +893,7 @@ color:white;</string>
   <zorder>buyStatisticInput</zorder>
   <zorder>payStatisticInput</zorder>
   <zorder>payStatisticLabel</zorder>
+  <zorder>userTable</zorder>
  </widget>
  <resources/>
  <connections/>

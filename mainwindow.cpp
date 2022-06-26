@@ -7,6 +7,7 @@
 #include "signup.h"
 #include <QSettings>
 #include "adminpanel.h"
+#include "clientpanel.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -44,8 +45,17 @@ void MainWindow::on_loginBtn_clicked()
                 admin->setWindowTitle(" ");
                 admin->setWindowIcon(QIcon(":/images/icon"));
                 admin->show();
-
                 this->hide();
+            }else if (role == "client") {
+                clientpanel *client = new clientpanel();
+                client->setFixedSize(client->width(),client->height());
+                client->setWindowState(Qt::WindowMaximized);
+                client->setWindowTitle(" ");
+                client->setWindowIcon(QIcon(":/images/icon"));
+                client->show();
+                this->hide();
+            }else{
+                //customer panel
             }
         }else{
             ui->notification->show();

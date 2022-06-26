@@ -183,13 +183,13 @@ bool user::editUser(QString username, QString role, bool status)
             address = users.at(i)["address"].toString();
             password = users.at(i)["password"].toString();
             acount = users.at(i)["acount"].toInt();
-            f.close();
+            QJsonObject newUser = { {"name", name},{"username", username},{"password", password},{"phone",phone},{"address",address} ,{"role",role}, {"status",status} ,{"acount",acount}};
+            newUsers.append(newUser);
         }else{
             newUsers.append(users.at(i));
         }
     }
-    QJsonObject newUser = { {"name", name},{"username", username},{"password", password},{"phone",phone},{"address",address} ,{"role",role}, {"status",status} ,{"acount",acount}};
-    newUsers.append(newUser);
+
     f.close();
 
 
@@ -249,4 +249,47 @@ qint64 user::getCustomerCount()
     }
     f.close();
     return count;
+}
+
+bool user::updateAcount(QString username, qint64 amount)
+{
+    QString name,phone,address,password,role;
+    qint64 acount;
+    bool status;
+    QJsonArray newUsers;
+    QFile f("data.json");
+    f.open(QIODevice::ReadOnly);
+    QByteArray data = f.readAll();
+    QJsonDocument json = QJsonDocument::fromJson(data);
+    QJsonArray users = json.array();
+    for (int i = 0; i < users.size(); i++) {
+        if(users.at(i)["username"] == username){
+            status = users.at(i)["status"].toBool();
+            role = users.at(i)["role"].toString();
+            name = users.at(i)["name"].toString();
+            phone = users.at(i)["phone"].toString();
+            address = users.at(i)["address"].toString();
+            password = users.at(i)["password"].toString();
+            acount = users.at(i)["acount"].toInt();
+            QJsonObject newUser = { {"name", name},{"username", username},{"password", password},{"phone",phone},{"address",address} ,{"role",role}, {"status",status} ,{"acount",(acount+amount)}};
+            newUsers.append(newUser);
+        }else{
+            newUsers.append(users.at(i));
+        }
+    }
+
+    f.close();
+
+
+    QJsonDocument doc(newUsers);
+    QFile j("data.json");
+
+    if( !j.open( QIODevice::ReadWrite | QIODevice::Truncate )  ){
+        return false;
+    }
+
+    j.write(doc.toJson());
+    j.close();
+
+    return true;
 }
