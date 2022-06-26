@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>rememberMe</class>
- <widget class="QWidget" name="rememberMe">
+ <class>searchpanel</class>
+ <widget class="QWidget" name="searchpanel">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,51 +13,22 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QGraphicsView" name="graphicsView">
+  <widget class="QGraphicsView" name="imageView">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
+     <y>-10</y>
      <width>971</width>
      <height>741</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">background-image: url(:/images/background);</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>320</x>
-     <y>30</y>
-     <width>301</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
    <property name="font">
     <font>
      <family>Yekan Bakh</family>
-     <pointsize>24</pointsize>
     </font>
    </property>
-   <property name="layoutDirection">
-    <enum>Qt::RightToLeft</enum>
-   </property>
    <property name="styleSheet">
-    <string notr="true">color:white;</string>
-   </property>
-   <property name="text">
-    <string>فراموشی رمز عبور</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <string notr="true">background-image: url(:/images/background);</string>
    </property>
   </widget>
   <widget class="Line" name="line">
@@ -77,6 +48,159 @@
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>30</y>
+     <width>301</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>301</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>301</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yekan Bakh</family>
+     <pointsize>24</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:white;</string>
+   </property>
+   <property name="text">
+    <string>جستجو کالا</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="accordingTo">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>160</y>
+     <width>400</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yekan Bakh</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::TabFocus</enum>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
+   </property>
+   <item>
+    <property name="text">
+     <string>نام</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>دسته بندی</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>فروشنده</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>برند</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>670</x>
+     <y>160</y>
+     <width>151</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yekan Bakh</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:white;</string>
+   </property>
+   <property name="text">
+    <string>بر اساس</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="searchText">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>240</y>
+     <width>400</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Yekan Bakh</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -101,63 +225,10 @@
     <string notr="true">color:white;</string>
    </property>
    <property name="text">
-    <string>شماره تلفن</string>
+    <string>عبارت مورد نظر</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="phoneInput">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>240</y>
-     <width>400</width>
-     <height>70</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="frame">
-    <bool>false</bool>
-   </property>
-   <property name="echoMode">
-    <enum>QLineEdit::Normal</enum>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="getLinkBtn">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>340</y>
-     <width>180</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Yekan Bakh</family>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="layoutDirection">
-    <enum>Qt::RightToLeft</enum>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color:&quot;green&quot;;
-color:&quot;white&quot;;</string>
-   </property>
-   <property name="text">
-    <string>دریافت لینک</string>
    </property>
   </widget>
   <widget class="QPushButton" name="backBtn">
@@ -189,84 +260,33 @@ color:&quot;white&quot;;</string>
     <string>بازگشت</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="usernameInput">
+  <widget class="QPushButton" name="searchBtn">
    <property name="geometry">
     <rect>
      <x>260</x>
-     <y>160</y>
-     <width>400</width>
-     <height>70</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="acceptDrops">
-    <bool>false</bool>
-   </property>
-   <property name="frame">
-    <bool>false</bool>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>680</x>
-     <y>160</y>
-     <width>151</width>
+     <y>340</y>
+     <width>180</width>
      <height>71</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Yekan Bakh</family>
-     <pointsize>12</pointsize>
+     <pointsize>14</pointsize>
     </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="layoutDirection">
     <enum>Qt::RightToLeft</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">color:white;</string>
+    <string notr="true">background-color:&quot;green&quot;;
+color:&quot;white&quot;;</string>
    </property>
    <property name="text">
-    <string>نام کاربری</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="notification">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>620</y>
-     <width>961</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Yekan Bakh</family>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="layoutDirection">
-    <enum>Qt::LeftToRight</enum>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <string>جستجو</string>
    </property>
   </widget>
  </widget>

@@ -15,6 +15,7 @@ public:
     static qint64 getPrice(QString productName);
     static qint64 getAllAvailableProduct(QString productName);
     static bool updateAfterBuy(QString productName , qint64 count);
+    static QJsonArray search(QString accordingTo,QString searchText);
 
 };
 

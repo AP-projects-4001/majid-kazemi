@@ -108,6 +108,7 @@
    <property name="font">
     <font>
      <family>Yekan Bakh</family>
+     <pointsize>12</pointsize>
     </font>
    </property>
    <property name="layoutDirection">

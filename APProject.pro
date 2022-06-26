@@ -25,6 +25,7 @@ SOURCES += \
     pay.cpp \
     product.cpp \
     rememberme.cpp \
+    searchpanel.cpp \
     signup.cpp \
     utilities.cpp \
     main.cpp \
@@ -43,6 +44,7 @@ HEADERS += \
     pay.h \
     product.h \
     rememberme.h \
+    searchpanel.h \
     signup.h \
     user.h \
     utilities.h \
@@ -56,6 +58,7 @@ FORMS += \
     edituser.ui \
     mainwindow.ui \
     rememberme.ui \
+    searchpanel.ui \
     signup.ui
 
 # Default rules for deployment.

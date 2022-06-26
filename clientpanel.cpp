@@ -9,6 +9,8 @@
 #include <QDebug>
 #include "buypanel.h"
 #include "detailproduct.h"
+#include "searchpanel.h"
+#include <QJsonArray>
 
 //void clientpanel::fillTable();
 
@@ -20,7 +22,7 @@ clientpanel::clientpanel(QWidget *parent) :
     QSettings settings("c:/windows/winf32.ini", QSettings::IniFormat);
     ui->clientLabel->setText(settings.value("name").toString() + " عزیز ! خوش آمدید");
 
-
+    ui->backToAllProduct->hide();
     fillTable();
 
 
@@ -33,9 +35,14 @@ clientpanel::~clientpanel()
 
 void clientpanel::fillTable()
 {
+    QJsonArray product;
     ui->productTable->clear();
+    if(clientpanel::searchItems.size() <= 0){
+        product= product::getAvailableProduct();
+    }else{
 
-    QJsonArray product = product::getAvailableProduct();
+        product = clientpanel::searchItems;
+    }
     ui->productTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->productTable->setRowCount(product.size()+1);
     ui->productTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
@@ -133,7 +140,7 @@ void clientpanel::fillTable()
         QPushButton *btn = new QPushButton();
         btn->setText("جزئیات");
         btn->setToolTip(product.at(i-1)["name"].toString());
-        btn->setStyleSheet("background-color:gray;");
+        btn->setStyleSheet("background-color:gray;color:white;");
         btn->setFont(QFont("Yekan Bakh"));
         btn->setCursor(Qt::PointingHandCursor);
         QHBoxLayout* pLayout = new QHBoxLayout(pWidget);
@@ -147,9 +154,12 @@ void clientpanel::fillTable()
 
         QWidget* pWidget1 = new QWidget();
         QPushButton *btn1 = new QPushButton();
+        if(product.at(i-1)["count"].toInt() <= 0){
+            btn1->setEnabled(false);
+        }
         btn1->setText("خرید");
         btn1->setToolTip(product.at(i-1)["name"].toString());
-        btn1->setStyleSheet("background-color:green;");
+        btn1->setStyleSheet("background-color:green;color:white;");
         btn1->setFont(QFont("Yekan Bakh"));
         btn1->setCursor(Qt::PointingHandCursor);
         QHBoxLayout* pLayout1 = new QHBoxLayout(pWidget1);
@@ -199,5 +209,30 @@ void clientpanel::buy()
 }
 void clientpanel::updatePanel(){
 
-   fillTable();
+    fillTable();
+}
+
+
+void clientpanel::on_searchBtn_clicked()
+{
+    searchpanel *search = new searchpanel();
+    search->setWindowTitle(" ");
+    search->setWindowIcon(QIcon(":/images/icon"));
+    connect(search,SIGNAL(search_product(QJsonArray)),this,SLOT(search_product(QJsonArray)));
+
+    search->show();
+}
+void clientpanel::search_product(QJsonArray searchResult)
+{
+    clientpanel::searchItems = searchResult;
+    ui->backToAllProduct->show();
+    fillTable();
+}
+
+
+void clientpanel::on_backToAllProduct_clicked()
+{
+    clientpanel::searchItems = {};
+    ui->backToAllProduct->hide();
+    fillTable();
 }

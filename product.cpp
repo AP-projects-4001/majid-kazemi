@@ -154,3 +154,24 @@ bool product::updateAfterBuy(QString productName, qint64 count)
     user::updateAcount(customer,(count * price));
     return true;
 }
+
+QJsonArray product::search(QString accordingTo, QString searchText)
+{
+
+    QJsonArray newProducts;
+    QFile f("product.json");
+    f.open(QIODevice::ReadOnly);
+    QByteArray data = f.readAll();
+    QJsonDocument json = QJsonDocument::fromJson(data);
+    QJsonArray products = json.array();
+    for (int i = 0; i < products.size(); i++) {
+        if(products.at(i)[accordingTo].toString().contains(searchText)){
+            newProducts.append(products.at(i));
+        }
+    }
+
+    f.close();
+
+    return newProducts;
+
+}

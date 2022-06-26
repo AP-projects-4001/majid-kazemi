@@ -2,6 +2,7 @@
 #define CLIENTPANEL_H
 
 #include <QWidget>
+#include <QJsonArray>
 
 namespace Ui {
 class clientpanel;
@@ -15,12 +16,18 @@ public:
     explicit clientpanel(QWidget *parent = nullptr);
     ~clientpanel();
     void fillTable();
+    QJsonArray searchItems;
 
 private slots:
     void on_logoutBtn_clicked();
     void detail();
     void buy();
     void updatePanel();
+    void on_searchBtn_clicked();
+    void search_product(QJsonArray searchResult);
+
+
+    void on_backToAllProduct_clicked();
 
 private:
     Ui::clientpanel *ui;
