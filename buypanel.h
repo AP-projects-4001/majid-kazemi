@@ -17,7 +17,7 @@ public:
     ~buypanel();
     qint64 productPrice = 0;
     QString productName;
-    qint64 productCount = 0;
+    qint64 productCount = 1;
 
 private slots:
 

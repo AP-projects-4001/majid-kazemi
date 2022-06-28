@@ -16,16 +16,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    addproduct.cpp \
     adminpanel.cpp \
     buy.cpp \
     buypanel.cpp \
     clientpanel.cpp \
+    customerpanel.cpp \
     detailproduct.cpp \
+    editproductpanel.cpp \
     edituser.cpp \
     pay.cpp \
     product.cpp \
     rememberme.cpp \
     searchpanel.cpp \
+    showproductcustomer.cpp \
     signup.cpp \
     utilities.cpp \
     main.cpp \
@@ -34,31 +38,39 @@ SOURCES += \
     validator.cpp
 
 HEADERS += \
+    addproduct.h \
     adminpanel.h \
     buy.h \
     buypanel.h \
     clientpanel.h \
+    customerpanel.h \
     detailproduct.h \
+    editproductpanel.h \
     edituser.h \
     mainwindow.h \
     pay.h \
     product.h \
     rememberme.h \
     searchpanel.h \
+    showproductcustomer.h \
     signup.h \
     user.h \
     utilities.h \
     validator.h
 
 FORMS += \
+    addproduct.ui \
     adminpanel.ui \
     buypanel.ui \
     clientpanel.ui \
+    customerpanel.ui \
     detailproduct.ui \
+    editproductpanel.ui \
     edituser.ui \
     mainwindow.ui \
     rememberme.ui \
     searchpanel.ui \
+    showproductcustomer.ui \
     signup.ui
 
 # Default rules for deployment.

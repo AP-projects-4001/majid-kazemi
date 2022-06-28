@@ -8,6 +8,7 @@
 #include <QSettings>
 #include "adminpanel.h"
 #include "clientpanel.h"
+#include "customerpanel.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -55,7 +56,13 @@ void MainWindow::on_loginBtn_clicked()
                 client->show();
                 this->hide();
             }else{
-                //customer panel
+                customerPanel *customer = new customerPanel();
+                customer->setFixedSize(customer->width(),customer->height());
+                customer->setWindowState(Qt::WindowMaximized);
+                customer->setWindowTitle(" ");
+                customer->setWindowIcon(QIcon(":/images/icon"));
+                customer->show();
+                this->hide();
             }
         }else{
             ui->notification->show();

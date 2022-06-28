@@ -9,6 +9,8 @@ public:
     static QJsonArray getAllBuy();
     static qint64 getSumOfBuy();
     static bool checkout(qint64 productCount , qint64 productPrice);
+    static QJsonArray getBuyForCustomer(QString customer);
+    static qint64 getTotalBuyForCustomer(QString customer);
 
 private:
     static int getLastId();

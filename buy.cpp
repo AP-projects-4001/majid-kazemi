@@ -72,8 +72,9 @@ bool buy::checkout(qint64 productCount, qint64 productPrice)
     }
     QJsonDocument jsonOrg = QJsonDocument::fromJson( f.readAll() );
     f.close();
+    QString customer = product::getCustomer(productName);
 
-    QJsonObject newBuy = { {"id", buy::getLastId()},{"date", utilities::getDataAndTime()},{"product_name", productName},{"count",productCount},{"price",(productCount * productPrice)} ,{"buyer",username}};
+    QJsonObject newBuy = { {"id", buy::getLastId()},{"date", utilities::getDataAndTime()},{"product_name", productName},{"count",productCount},{"price",(productCount * productPrice)} ,{"buyer",username},{"customer",customer}};
     QJsonArray allBuy = jsonOrg.array();
     allBuy.push_back(newBuy);
     QJsonDocument doc(allBuy);
@@ -87,6 +88,44 @@ bool buy::checkout(qint64 productCount, qint64 productPrice)
     j.close();
 
     return true;
+}
+
+QJsonArray buy::getBuyForCustomer(QString customer)
+{
+    QJsonArray newBuy;
+    QFile f("buy.json");
+    f.open(QIODevice::ReadOnly);
+    QByteArray data = f.readAll();
+    QJsonDocument json = QJsonDocument::fromJson(data);
+    QJsonArray buy = json.array();
+    for (int i = 0; i < buy.size(); i++) {
+        if(buy.at(i)["customer"] == customer){
+            newBuy.append(buy.at(i));
+        }
+    }
+
+    f.close();
+
+    return newBuy;
+}
+
+qint64 buy::getTotalBuyForCustomer(QString customer)
+{
+    qint64 sum = 0;
+    QFile f("buy.json");
+    f.open(QIODevice::ReadOnly);
+    QByteArray data = f.readAll();
+    QJsonDocument json = QJsonDocument::fromJson(data);
+    QJsonArray buy = json.array();
+    for (int i = 0; i < buy.size(); i++) {
+        if(buy.at(i)["customer"] == customer){
+            sum += buy.at(i)["price"].toInt();
+        }
+    }
+
+    f.close();
+
+    return sum;
 }
 
 

@@ -17,6 +17,8 @@ public:
     ~clientpanel();
     void fillTable();
     QJsonArray searchItems;
+    void fillBuy();
+    void fillPay();
 
 private slots:
     void on_logoutBtn_clicked();

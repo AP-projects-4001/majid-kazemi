@@ -293,3 +293,20 @@ bool user::updateAcount(QString username, qint64 amount)
 
     return true;
 }
+
+bool user::checkCustomer(QString username)
+{
+    QFile f("data.json");
+    f.open(QIODevice::ReadOnly);
+    QByteArray data = f.readAll();
+    QJsonDocument json = QJsonDocument::fromJson(data);
+    QJsonArray users = json.array();
+    for (int i = 0; i < users.size(); i++) {
+        if(users.at(i)["username"] == username && users.at(i)["status"] == true && users.at(i)["role"] == "customer"){
+            f.close();
+            return true;
+        }
+    }
+    f.close();
+    return false;
+}

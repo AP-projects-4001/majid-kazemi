@@ -20,6 +20,7 @@ public:
     static qint64 getUserCount();
     static qint64 getCustomerCount();
     static bool updateAcount(QString username , qint64 amount);
+    static bool checkCustomer(QString username);
 
 };
 

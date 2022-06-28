@@ -4,6 +4,7 @@
 #include <adminpanel.h>
 #include <QDebug>
 #include "clientpanel.h"
+#include "customerpanel.h"
 
 int main(int argc, char *argv[])
 {
@@ -26,7 +27,12 @@ int main(int argc, char *argv[])
             client->setWindowIcon(QIcon(":/images/icon"));
             client->show();
         }else{
-
+            customerPanel *customer = new customerPanel();
+            customer->setFixedSize(customer->width(),customer->height());
+            customer->setWindowState(Qt::WindowMaximized);
+            customer->setWindowTitle(" ");
+            customer->setWindowIcon(QIcon(":/images/icon"));
+            customer->show();
         }
         return a.exec();
 

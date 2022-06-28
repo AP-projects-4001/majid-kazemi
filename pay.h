@@ -9,6 +9,8 @@ public:
     pay();
     static QJsonArray getAllPay();
     static qint64 getSumOfPay();
+    static QJsonArray getPayForCustomer(QString customer);
+    static qint64 getTotoalPayForCustomer(QString customer);
 };
 
 #endif // PAY_H
