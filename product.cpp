@@ -152,7 +152,6 @@ bool product::updateAfterBuy(QString productName, qint64 count)
     j.write(doc.toJson());
     j.close();
 
-    user::updateAcount(customer,(count * price));
     return true;
 }
 
@@ -308,8 +307,8 @@ bool product::edit(QString username, QString name, QString brand, QString catego
 
             QJsonObject obj;
             QJsonDocument doc = QJsonDocument::fromJson(options.toUtf8());
-
-            QJsonObject newProduct = { {"id", products.at(i)["id"].toInt()},{"name", name},{"customer", username},{"count",count},{"price",price} ,{"brand",brand}, {"weight",weight} ,{"size",size},{"category",category},{"options",obj}};
+            QJsonObject newProduct = { {"id", products.at(i)["id"].toInt()},{"name", name},{"customer", username},{"count",count},{"price",price} ,{"brand",brand}, {"weight",weight} ,{"size",size},{"category",category}};
+            newProduct.insert("options",doc.object());
             newProducts.append(newProduct);
         }else{
             newProducts.append(products.at(i));

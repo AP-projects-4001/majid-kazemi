@@ -26,6 +26,7 @@ SOURCES += \
     editproductpanel.cpp \
     edituser.cpp \
     pay.cpp \
+    paypanel.cpp \
     product.cpp \
     rememberme.cpp \
     searchpanel.cpp \
@@ -49,6 +50,7 @@ HEADERS += \
     edituser.h \
     mainwindow.h \
     pay.h \
+    paypanel.h \
     product.h \
     rememberme.h \
     searchpanel.h \
@@ -68,6 +70,7 @@ FORMS += \
     editproductpanel.ui \
     edituser.ui \
     mainwindow.ui \
+    paypanel.ui \
     rememberme.ui \
     searchpanel.ui \
     showproductcustomer.ui \

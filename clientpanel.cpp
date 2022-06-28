@@ -139,7 +139,8 @@ void clientpanel::fillTable()
         QWidget* pWidget = new QWidget();
         QPushButton *btn = new QPushButton();
         btn->setText("جزئیات");
-        btn->setToolTip(product.at(i-1)["name"].toString());
+        btn->setToolTip(product.at(i-1)["name"].toString() + "-" + product.at(i-1)["customer"].toString());
+
         btn->setStyleSheet("background-color:gray;color:white;");
         btn->setFont(QFont("Yekan Bakh"));
         btn->setCursor(Qt::PointingHandCursor);
@@ -187,7 +188,13 @@ void clientpanel::detail()
 {
     QPushButton *b = qobject_cast<QPushButton *>(sender());
     QSettings settings("c:/windows/winf32.ini", QSettings::IniFormat);
-    settings.setValue("detail_product",b->toolTip());
+
+    QRegExp rx("(\\-)");
+    QStringList query = b->toolTip().split(rx);
+
+
+    settings.setValue("detail_product",query[0]);
+    settings.setValue("detail_product_username",query[1]);
     detailProduct *detail = new detailProduct();
     detail->setWindowTitle(" ");
     detail->setWindowIcon(QIcon(":/images/icon"));

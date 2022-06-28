@@ -3,7 +3,9 @@
 #include <QJsonDocument>
 #include <QDebug>
 #include <QDateTime>
-
+#include <QSettings>
+#include "utilities.h"
+#include <QJsonObject>
 pay::pay()
 {
 
@@ -68,6 +70,45 @@ qint64 pay::getTotoalPayForCustomer(QString customer)
     }
     f.close();
     return sum;
+}
+
+int pay::getLastId()
+{
+    QFile f("pay.json");
+    f.open(QIODevice::ReadOnly);
+    QByteArray data = f.readAll();
+    QJsonDocument json = QJsonDocument::fromJson(data);
+    QJsonArray pay = json.array();
+    if(pay.size() > 0){
+        return pay.last()["id"].toInt() + 1;
+    }
+    return 1;
+}
+
+bool pay::checkout(QString username, qint64 amount)
+{
+
+    QFile f("pay.json");
+    if( !f.open( QIODevice::ReadOnly ) ){
+        return false;
+    }
+    QJsonDocument jsonOrg = QJsonDocument::fromJson( f.readAll() );
+    f.close();
+
+    QJsonObject newPay = { {"id", pay::getLastId()},{"date", utilities::getDataAndTime()},{"customer", username},{"amount",amount}};
+    QJsonArray allPay = jsonOrg.array();
+    allPay.push_back(newPay);
+    QJsonDocument doc(allPay);
+    QFile j("pay.json");
+
+    if( !j.open( QIODevice::ReadWrite | QIODevice::Truncate )  ){
+        return false;
+    }
+
+    j.write(doc.toJson());
+    j.close();
+
+    return true;
 }
 
 

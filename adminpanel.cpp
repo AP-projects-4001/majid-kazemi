@@ -14,6 +14,7 @@
 #include "buy.h"
 #include "pay.h"
 #include "product.h"
+#include "paypanel.h"
 
 adminpanel::adminpanel(QWidget *parent) :
     QWidget(parent),
@@ -149,7 +150,38 @@ void adminpanel::on_userBtn_clicked()
         pWidget->setLayout(pLayout);
         ui->userTable->setCellWidget(i, 6, pWidget);
         connect(btn, &QPushButton::clicked, this, &adminpanel::onClicked);
+
+
+        if(users.at(i)["role"].toString() == "customer"){
+            QWidget* pWidget1 = new QWidget();
+            QPushButton *btn1 = new QPushButton();
+            btn1->setText("تسویه");
+            btn1->setToolTip(users.at(i)["username"].toString());
+            btn1->setStyleSheet("background-color:green;");
+            btn1->setFont(QFont("Yekan Bakh"));
+            btn1->setCursor(Qt::PointingHandCursor);
+            QHBoxLayout* pLayout1 = new QHBoxLayout(pWidget1);
+            pLayout1->addWidget(btn1);
+            pLayout1->setAlignment(Qt::AlignCenter);
+            pLayout1->setContentsMargins(0, 0, 0, 0);
+            pWidget1->setLayout(pLayout);
+            ui->userTable->setCellWidget(i, 7, pWidget1);
+            connect(btn1, &QPushButton::clicked, this, &adminpanel::checkout);
+        }
     }
+}
+void adminpanel::checkout(){
+    QPushButton *b = qobject_cast<QPushButton *>(sender());
+    QSettings settings("c:/windows/winf32.ini", QSettings::IniFormat);
+    settings.setValue("pay_user",b->toolTip());
+
+    paypanel *pay = new paypanel();
+    pay->setWindowTitle(" ");
+    pay->setWindowIcon(QIcon(":/images/icon"));
+    pay->setFixedSize(pay->width(),pay->height());
+    //connect(pay,SIGNAL(update_user()),this,SLOT(update_user()));
+    pay->show();
+
 }
 void adminpanel::onClicked(){
     QPushButton *b = qobject_cast<QPushButton *>(sender());

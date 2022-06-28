@@ -11,6 +11,8 @@ public:
     static qint64 getSumOfPay();
     static QJsonArray getPayForCustomer(QString customer);
     static qint64 getTotoalPayForCustomer(QString customer);
+    static int getLastId();
+    static bool checkout(QString username , qint64 amount);
 };
 
 #endif // PAY_H

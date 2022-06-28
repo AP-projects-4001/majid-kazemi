@@ -29,6 +29,7 @@ private slots:
     void on_productBtn_clicked();
 
     void on_statisticBtn_clicked();
+    void checkout();
 
 private:
     Ui::adminpanel *ui;

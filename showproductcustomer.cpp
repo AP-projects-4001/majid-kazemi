@@ -181,6 +181,7 @@ void showproductcustomer::detail()
     QPushButton *b = qobject_cast<QPushButton *>(sender());
     QSettings settings("c:/windows/winf32.ini", QSettings::IniFormat);
     settings.setValue("detail_product",b->toolTip());
+    settings.value("detail_product_username",username);
     detailProduct *detail = new detailProduct();
     detail->setWindowTitle(" ");
     detail->setWindowIcon(QIcon(":/images/icon"));
