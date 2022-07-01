@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    AESLibrary/qaesencryption.cpp \
     addproduct.cpp \
     adminpanel.cpp \
     buy.cpp \
@@ -25,6 +26,18 @@ SOURCES += \
     detailproduct.cpp \
     editproductpanel.cpp \
     edituser.cpp \
+    emailLibrary/emailaddress.cpp \
+    emailLibrary/mimeattachment.cpp \
+    emailLibrary/mimecontentformatter.cpp \
+    emailLibrary/mimefile.cpp \
+    emailLibrary/mimehtml.cpp \
+    emailLibrary/mimeinlinefile.cpp \
+    emailLibrary/mimemessage.cpp \
+    emailLibrary/mimemultipart.cpp \
+    emailLibrary/mimepart.cpp \
+    emailLibrary/mimetext.cpp \
+    emailLibrary/quotedprintable.cpp \
+    emailLibrary/smtpclient.cpp \
     pay.cpp \
     paypanel.cpp \
     product.cpp \
@@ -39,6 +52,10 @@ SOURCES += \
     validator.cpp
 
 HEADERS += \
+    AESLibrary/aesni-enc-cbc.h \
+    AESLibrary/aesni-enc-ecb.h \
+    AESLibrary/aesni-key-exp.h \
+    AESLibrary/qaesencryption.h \
     addproduct.h \
     adminpanel.h \
     buy.h \
@@ -48,6 +65,20 @@ HEADERS += \
     detailproduct.h \
     editproductpanel.h \
     edituser.h \
+    emailLibrary/SmtpMime \
+    emailLibrary/emailaddress.h \
+    emailLibrary/mimeattachment.h \
+    emailLibrary/mimecontentformatter.h \
+    emailLibrary/mimefile.h \
+    emailLibrary/mimehtml.h \
+    emailLibrary/mimeinlinefile.h \
+    emailLibrary/mimemessage.h \
+    emailLibrary/mimemultipart.h \
+    emailLibrary/mimepart.h \
+    emailLibrary/mimetext.h \
+    emailLibrary/quotedprintable.h \
+    emailLibrary/smtpclient.h \
+    emailLibrary/smtpexports.h \
     mainwindow.h \
     pay.h \
     paypanel.h \
@@ -81,7 +112,8 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES +=
+
 
 RESOURCES += \
     resources.qrc
+

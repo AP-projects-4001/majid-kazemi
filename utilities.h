@@ -5,9 +5,12 @@ class utilities
 {
 public:
     utilities();
-    static QString encrypt(QString str);
-    static QString decrypt(QString str);
+    QString key;
+    QString iv;
+    static QByteArray encrypt(QString str);
+    static QString decrypt(QByteArray str);
     static QString getDataAndTime();
+    static bool sendMail();
 };
 
 #endif // UTILITIES_H

@@ -5,11 +5,13 @@
 #include <QDebug>
 #include "clientpanel.h"
 #include "customerpanel.h"
+#include "utilities.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
+    utilities::sendMail();
     QSettings settings("c:/windows/winf32.ini", QSettings::IniFormat);
     if(settings.value("login").toBool()){
         if (settings.value("role").toString() == "admin") {
