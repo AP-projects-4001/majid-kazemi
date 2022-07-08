@@ -1,0 +1,64 @@
+[
+    {
+        "brand": "گلنار",
+        "category": "لوازم آرایشی و بهداشتی",
+        "count": 30,
+        "customer": "majid_kz2",
+        "id": 1,
+        "name": "صابون گلنار",
+        "options": {
+            "color": "سبز"
+        },
+        "price": 15000,
+        "size": "10*30*5",
+        "weight": "200gr"
+    },
+    {
+        "brand": "xiaomi",
+        "category": "تلفن همراه",
+        "count": 0,
+        "customer": "sadegh_sha",
+        "id": 2,
+        "name": "موبایل xiaomi redmi note9",
+        "options": {
+            "camera": "32mpx",
+            "camera_count": "2",
+            "color": "مشکی",
+            "newtork": "3g,4g,5g",
+            "os": "android 10",
+            "ram": "8gb",
+            "storage": "256gb"
+        },
+        "price": 7500000,
+        "size": "75*158*7",
+        "weight": "193gr"
+    },
+    {
+        "brand": "lenovo",
+        "category": "تبلت",
+        "count": 16,
+        "customer": "majid_kz2",
+        "id": 3,
+        "name": "تبلت لنوو مدل s8",
+        "options": {
+            "camera": "16 mpx",
+            "os": "android 4.4"
+        },
+        "price": 3500000,
+        "size": "0.2 * 0.123 * 0.07",
+        "weight": "299 gr"
+    },
+    {
+        "brand": "asus",
+        "category": "لپ تاپ",
+        "count": 10,
+        "customer": "majid_kz2",
+        "id": 4,
+        "name": "لپ تاپ ایسوس مدل vivobook s410UN",
+        "options": {
+        },
+        "price": 27000000,
+        "size": "۳۶۲.۲x۲۵۳.۴x۱۹.۹",
+        "weight": "1.85 kg"
+    }
+]

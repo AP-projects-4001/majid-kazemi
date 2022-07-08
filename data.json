@@ -1,0 +1,62 @@
+[
+    {
+        "acount": 0,
+        "address": "مشهد",
+        "name": "علی کاظمی",
+        "password": "aliali",
+        "phone": "09120000000",
+        "role": "admin",
+        "status": true,
+        "username": "aliali"
+    },
+    {
+        "acount": 0,
+        "address": "شیراز",
+        "name": "صادق شاه تیموری",
+        "password": "1234",
+        "phone": "09121234567",
+        "role": "client",
+        "status": true,
+        "username": "sadegh"
+    },
+    {
+        "acount": 0,
+        "address": "اصفهان",
+        "name": "رضا",
+        "password": "1234",
+        "phone": "09120000001",
+        "role": "client",
+        "status": true,
+        "username": "1234"
+    },
+    {
+        "acount": 0,
+        "address": "تهران",
+        "name": "صادق",
+        "password": "0000",
+        "phone": "09101234567",
+        "role": "customer",
+        "status": true,
+        "username": "sadegh_shah"
+    },
+    {
+        "acount": 537025000,
+        "address": "لرستان",
+        "name": "مجید کاظمی",
+        "password": "1234",
+        "phone": "09120000011",
+        "role": "customer",
+        "status": true,
+        "username": "majid_kz2"
+    },
+    {
+        "acount": 0,
+        "address": "hhsh",
+        "name": "صادق شاه",
+        "password": "123456",
+        "phone": "09102453165",
+        "role": "client",
+        "status": true,
+        "username": "sadegh021"
+    }
+]
